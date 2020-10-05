@@ -49,8 +49,7 @@ public class MainActivity extends AppCompatActivity {
             ).show();
             return;
         }
-        Log.d("MainActivity", String.format("Valor extra: %s",
-                startIntent.getDoubleExtra("NUMERO", 0.0)));
+
         TextView tvConfirmDesc = findViewById(R.id.tv_confirm_desc);
         tvConfirmDesc.setText(getString(R.string.confirm_desc, email));
     }

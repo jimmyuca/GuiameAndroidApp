@@ -53,7 +53,6 @@ public class SignUpActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(MainActivity.FULLNAME_KEY, etFullname.getText().toString());
         intent.putExtra(MainActivity.EMAIL_KEY, etEmail.getText().toString());
-        intent.putExtra("NUMERO", 2.0);
         startActivity(intent);
     }
 
