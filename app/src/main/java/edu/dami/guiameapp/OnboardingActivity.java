@@ -38,6 +38,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
     private void navigateToSignUp() {
         Intent intent = new Intent(this, SignUpActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 }
