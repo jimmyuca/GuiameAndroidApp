@@ -17,13 +17,7 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void setup() {
-        setupBar();
         setupActions();
-    }
-
-    private void setupBar() {
-        if(getSupportActionBar() == null) return;
-        getSupportActionBar().hide();
     }
 
     private void setupActions() {
@@ -38,7 +32,7 @@ public class OnboardingActivity extends AppCompatActivity {
 
     private void navigateToSignUp() {
         Intent intent = new Intent(this, SignUpActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 }

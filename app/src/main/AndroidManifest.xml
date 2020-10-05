@@ -10,8 +10,10 @@
         android:theme="@style/AppTheme.Base">
         <activity android:name=".MainActivity" />
         <activity android:name=".SignUpActivity"
+            android:theme="@style/AppOnboardingTheme"
             />
         <activity android:name=".OnboardingActivity"
+            android:theme="@style/AppOnboardingTheme"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

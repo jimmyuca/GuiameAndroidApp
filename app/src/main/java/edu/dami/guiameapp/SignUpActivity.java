@@ -24,8 +24,6 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void setup() {
-        setupBar();
-
         etFullname = findViewById(R.id.et_fullname);
         etEmail = findViewById(R.id.et_email);
 
@@ -36,11 +34,6 @@ public class SignUpActivity extends AppCompatActivity {
                 navigateToMain();
             }
         });
-    }
-
-    private void setupBar() {
-        if(getSupportActionBar() == null) return;
-        getSupportActionBar().hide();
     }
 
     private void navigateToMain() {
