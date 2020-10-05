@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Guiame</string>
+    <string name="logo_desc">Guiame\'s Logo</string>
+    <string name="titulo_bienvenida">Welcome to Guiame</string>
+    <string name="bienvenida_desc">You are looking for a specific place within a mall, university or building, but you have no idea where it is, nor can Google help you, but Guiame can!</string>
+    <string name="start">LET\'S START</string>
+    <string name="genial_verdad">Great, right?</string>
+    <string name="banner">Banner</string>
+    <string name="empecemos">Let\'s start!</string>
+    <string name="fullname">Full name</string>
+    <string name="email">Email</string>
+    <string name="fullname_sample">E.g: Jimmy Saenz</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="help_cta_content">Need some help? contact us</string>
+    <string name="one_more_step">Just one more step</string>
+    <string name="welcome_user_title">Welcome, %s</string>
+    <string name="confirm_desc">Verify your email %s please</string>
+    <string name="cannot_get_email">We could not retrieve the email :(</string>
+</resources>
