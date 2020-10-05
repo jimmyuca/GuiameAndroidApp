@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="onboard_ver_bias">0.15</dimen>
+    <dimen name="logo_size">92dp</dimen>
+    <dimen name="mg_hor_wide_view">72dp</dimen>
+</resources>

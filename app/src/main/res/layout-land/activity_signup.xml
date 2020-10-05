@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gd_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8"
+        />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/empecemos"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@id/gd_start"
+        app:layout_constraintEnd_toStartOf="@id/gd_end"
+        app:layout_constraintTop_toTopOf="@id/gd_top"
+        app:layout_constraintBottom_toTopOf="@id/tv_fullname"
+        />
+
+    <TextView
+        android:id="@+id/tv_fullname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/fullname"
+        android:layout_marginTop="16dp"
+        android:labelFor="@id/et_fullname"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintEnd_toEndOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_fullname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:hint="@string/fullname_sample"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@id/tv_fullname"
+        app:layout_constraintEnd_toEndOf="@id/tv_fullname"
+        app:layout_constraintTop_toBottomOf="@id/tv_fullname"
+        />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:layout_marginTop="16dp"
+        android:labelFor="@id/et_email"
+        app:layout_constraintStart_toStartOf="@id/tv_fullname"
+        app:layout_constraintEnd_toEndOf="@id/tv_fullname"
+        app:layout_constraintTop_toBottomOf="@id/et_fullname"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:hint="@string/email"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="@id/tv_email"
+        app:layout_constraintEnd_toEndOf="@id/tv_email"
+        app:layout_constraintTop_toBottomOf="@id/tv_email"
+        />
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/signUp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintStart_toStartOf="@id/tv_email"
+        app:layout_constraintEnd_toEndOf="@id/tv_email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

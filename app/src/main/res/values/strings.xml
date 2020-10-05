@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Guiame</string>
+    <string name="logo_desc">Logo Guiame</string>
+    <string name="titulo_bienvenida">Bienvenido a Guiame</string>
+    <string name="bienvenida_desc">Llegás a algún edificio, centro de estudios o mall y no sabés como llegar a una sección o área específica, ni San Google ni San Waze podrá ayudarte, ¡pero Guiame si!</string>
+    <string name="start">EMPEZAR</string>
+    <string name="genial_verdad">¿Genial verdad?</string>
+    <string name="banner">Banner</string>
+    <string name="empecemos">¡Empecemos!</string>
+    <string name="fullname">Nombre completo</string>
+    <string name="email">Correo electrónico</string>
+    <string name="fullname_sample">Ejemplo: Jimmy Saenz</string>
+    <string name="signUp">REGISTRARSE</string>
+    <string name="help_cta_content">¿Tenés alguna duda? contáctanos</string>
+    <string name="one_more_step">Un pasito más</string>
+    <string name="welcome_user_title">Bienvenido, %s</string>
+    <string name="confirm_desc">Te hemos enviado un email a %s para verificar tu cuenta, así podrás usar todas las opciones de la app.</string>
+    <string name="cannot_get_email">No pudimos obtener el email :(</string>
+</resources>
