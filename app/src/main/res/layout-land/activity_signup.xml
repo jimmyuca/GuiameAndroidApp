@@ -43,7 +43,7 @@ https://developer.android.com/guide/topics/resources/providing-resources.html
         app:layout_constraintStart_toEndOf="@id/gd_start"
         app:layout_constraintEnd_toStartOf="@id/gd_end"
         app:layout_constraintTop_toTopOf="@id/gd_top"
-        app:layout_constraintBottom_toTopOf="@id/tv_fullname"
+        app:layout_constraintBottom_toTopOf="@id/til_fullname"
         />
 
 
