@@ -10,6 +10,7 @@
     <string name="fullname">Nombre completo</string>
     <string name="email">Correo electrónico</string>
     <string name="fullname_sample">Ejemplo: Jimmy Saenz</string>
+    <string name="email_sample">Ejemplo: jimmysaenz5@gmail.com</string>
     <string name="signUp">REGISTRARSE</string>
     <string name="help_cta_content">¿Tenés alguna duda? contáctanos</string>
     <string name="one_more_step">Un pasito más</string>

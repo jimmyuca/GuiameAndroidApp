@@ -46,53 +46,53 @@ https://developer.android.com/guide/topics/resources/providing-resources.html
         app:layout_constraintBottom_toTopOf="@id/tv_fullname"
         />
 
-    <TextView
-        android:id="@+id/tv_fullname"
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/fullname"
+        android:id="@+id/til_fullname"
         android:layout_marginTop="16dp"
-        android:labelFor="@id/et_fullname"
+        android:layout_marginHorizontal="32dp"
+        android:hint="@string/fullname"
+        app:helperText="@string/fullname_sample"
+        app:startIconDrawable="@drawable/ic_baseline_subject_24"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintStart_toStartOf="@id/tv_title"
         app:layout_constraintEnd_toEndOf="@id/tv_title"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
-        />
+        app:layout_constraintTop_toBottomOf="@id/tv_title">
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/et_fullname"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:inputType="textPersonName"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:hint="@string/fullname_sample"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@id/tv_fullname"
-        app:layout_constraintEnd_toEndOf="@id/tv_fullname"
-        app:layout_constraintTop_toBottomOf="@id/tv_fullname"
-        />
-
-    <TextView
-        android:id="@+id/tv_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/email"
+        android:id="@+id/til_email"
         android:layout_marginTop="16dp"
-        android:labelFor="@id/et_email"
-        app:layout_constraintStart_toStartOf="@id/tv_fullname"
-        app:layout_constraintEnd_toEndOf="@id/tv_fullname"
-        app:layout_constraintTop_toBottomOf="@id/et_fullname"
-        />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/et_email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
         android:hint="@string/email"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@id/tv_email"
-        app:layout_constraintEnd_toEndOf="@id/tv_email"
-        app:layout_constraintTop_toBottomOf="@id/tv_email"
-        />
+        app:helperText="@string/email_sample"
+        app:startIconDrawable="@drawable/ic_baseline_email_24"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintStart_toStartOf="@id/til_fullname"
+        app:layout_constraintEnd_toEndOf="@id/til_fullname"
+        app:layout_constraintTop_toBottomOf="@id/til_fullname">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:inputType="textEmailAddress"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btn_signup"
@@ -103,8 +103,8 @@ https://developer.android.com/guide/topics/resources/providing-resources.html
         android:textColor="@android:color/background_dark"
         android:textStyle="bold"
         android:layout_marginBottom="4dp"
-        app:layout_constraintStart_toStartOf="@id/tv_email"
-        app:layout_constraintEnd_toEndOf="@id/tv_email"
+        app:layout_constraintStart_toStartOf="@id/til_email"
+        app:layout_constraintEnd_toEndOf="@id/til_email"
         app:layout_constraintBottom_toBottomOf="parent"
         />
 

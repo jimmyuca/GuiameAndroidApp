@@ -17,4 +17,5 @@
     <string name="welcome_user_title">Welcome, %s</string>
     <string name="confirm_desc">Verify your email %s please</string>
     <string name="cannot_get_email">We could not retrieve the email :(</string>
+    <string name="email_sample">E.g: jimmysaenz5@gmail.com</string>
 </resources>

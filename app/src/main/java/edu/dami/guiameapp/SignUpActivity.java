@@ -8,13 +8,17 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.security.InvalidParameterException;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    AppCompatEditText etFullname, etEmail;
+    TextInputLayout tilFullname, tilEmail;
+    EditText etFullname, etEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +28,11 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void setup() {
-        etFullname = findViewById(R.id.et_fullname);
-        etEmail = findViewById(R.id.et_email);
+        tilFullname = findViewById(R.id.til_fullname);
+        tilEmail = findViewById(R.id.til_email);
+
+        etFullname = tilFullname.getEditText();
+        etEmail = tilEmail.getEditText();
 
         Button btnSignUp = findViewById(R.id.btn_signup);
         btnSignUp.setOnClickListener(new View.OnClickListener() {
@@ -40,6 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
         if(!validateFields()) {
             return;
         }
+
         if(etFullname.getText() == null || etEmail.getText() == null)
             throw new InvalidParameterException();
 
