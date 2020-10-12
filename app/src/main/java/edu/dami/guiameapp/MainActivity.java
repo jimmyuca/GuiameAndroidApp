@@ -1,6 +1,8 @@
 package edu.dami.guiameapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +10,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
+
+import edu.dami.guiameapp.adapters.PointsAdapter;
+import edu.dami.guiameapp.models.PointModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,7 +57,16 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        TextView tvConfirmDesc = findViewById(R.id.tv_confirm_desc);
-        tvConfirmDesc.setText(getString(R.string.confirm_desc, email));
+        setupPointListView();
+    }
+
+    private void setupPointListView() {
+        RecyclerView rvPoints = findViewById(R.id.rv_points);
+        List<PointModel> modelList = PointModel.build(30);
+        PointsAdapter adapter = new PointsAdapter(modelList);
+        rvPoints.setAdapter(adapter);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getBaseContext());
+        rvPoints.setLayoutManager(layoutManager);
+        rvPoints.setHasFixedSize(true);
     }
 }
