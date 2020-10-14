@@ -3,6 +3,7 @@ package edu.dami.guiameapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -41,6 +42,15 @@ public class SignUpActivity extends AppCompatActivity {
                 navigateToMain();
             }
         });
+
+        loadDefaultDataIfDebug();
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void loadDefaultDataIfDebug() {
+        if(!BuildConfig.DEBUG) return;
+        etFullname.setText("Jimmy Saenz");
+        etEmail.setText("jimmy.saenz@uca.edu.ni");
     }
 
     private void navigateToMain() {
