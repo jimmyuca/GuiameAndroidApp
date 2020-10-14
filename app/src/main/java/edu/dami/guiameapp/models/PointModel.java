@@ -41,7 +41,7 @@ public class PointModel {
 
     public static List<PointModel> build(int count) {
         ArrayList<PointModel> models = new ArrayList<>();
-        for (int i = 0; i < count; i++) {
+        for (int i = 1; i <= count; i++) {
             PointModel newModel = new PointModel(
                     String.valueOf(i),
                     String.format(Locale.getDefault(), "Punto %d", i),
