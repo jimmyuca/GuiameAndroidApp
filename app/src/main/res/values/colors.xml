@@ -7,4 +7,5 @@
     <color name="colorPurple">#9C27B0</color>
     <color name="colorGreenLightGray">#C7DDC8</color>
     <color name="colorLightGray">#F4F4F4</color>
+    <color name="colorBackgroundGray">@color/colorLightGray</color>
 </resources>
