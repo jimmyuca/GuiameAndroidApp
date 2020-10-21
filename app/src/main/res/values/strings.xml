@@ -17,4 +17,5 @@
     <string name="welcome_user_title">Bienvenido, %s</string>
     <string name="confirm_desc">Te hemos enviado un email a %s para verificar tu cuenta, así podrás usar todas las opciones de la app.</string>
     <string name="cannot_get_email">No pudimos obtener el email :(</string>
+    <string name="category">categoría</string>
 </resources>

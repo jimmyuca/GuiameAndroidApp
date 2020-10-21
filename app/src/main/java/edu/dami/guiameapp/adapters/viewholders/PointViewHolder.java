@@ -1,6 +1,7 @@
 package edu.dami.guiameapp.adapters.viewholders;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import edu.dami.guiameapp.helpers.events.ItemTapListener;
 public class PointViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     public TextView tvName, tvDesc;
+    public ImageView ivCategory;
     @Nullable
     private final ItemTapListener mTapListener;
 
@@ -24,6 +26,7 @@ public class PointViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
         tvName = itemView.findViewById(R.id.tv_name);
         tvDesc = itemView.findViewById(R.id.tv_desc);
+        ivCategory = itemView.findViewById(R.id.iv_category);
     }
 
     @Override

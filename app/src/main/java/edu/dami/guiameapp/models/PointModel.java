@@ -8,11 +8,13 @@ public class PointModel {
     private String id;
     private String name;
     private String description;
+    private String category;
 
-    public PointModel(String id, String name, String description) {
+    public PointModel(String id, String name, String description, String category) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.category = category;
     }
 
     public String getId() {
@@ -37,5 +39,13 @@ public class PointModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

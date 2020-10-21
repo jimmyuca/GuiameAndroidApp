@@ -49,6 +49,9 @@ public class PointsAdapter extends RecyclerView.Adapter<PointViewHolder> {
         PointModel currentModel = mModelList.get(position);
         holder.tvName.setText(currentModel.getName());
         holder.tvDesc.setText(currentModel.getDescription());
+        holder.ivCategory.setImageResource(
+                PointViewHelper.getResIdByCategory(currentModel.getCategory())
+        );
     }
 
     @Override
