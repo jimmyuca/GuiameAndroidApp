@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Locale;
 
 import edu.dami.guiameapp.adapters.PointsAdapter;
+import edu.dami.guiameapp.data.IPointsSource;
+import edu.dami.guiameapp.data.PointsRepository;
 import edu.dami.guiameapp.helpers.events.ItemTapListener;
 import edu.dami.guiameapp.models.PointModel;
 
@@ -27,7 +29,9 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
     public static final String FULLNAME_KEY = "FULLNAME";
     public static final String EMAIL_KEY = "EMAIL";
 
+    private PointsRepository mPointsRepository;
     private List<PointModel> mModelList;
+
     private ViewGroup rootView;
 
     @Override
@@ -38,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
     }
 
     private void setup() {
+        mPointsRepository = new PointsRepository();
+
         Intent startIntent = getIntent();
         if(startIntent == null) {
             Toast.makeText(
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
 
     private void setupPointListView() {
         RecyclerView rvPoints = findViewById(R.id.rv_points);
-        mModelList = PointModel.build(300);
+        mModelList = mPointsRepository.getAll();
         PointsAdapter adapter = new PointsAdapter(mModelList, this);
         rvPoints.setAdapter(adapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getBaseContext());

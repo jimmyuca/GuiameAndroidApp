@@ -38,17 +38,4 @@ public class PointModel {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public static List<PointModel> build(int count) {
-        ArrayList<PointModel> models = new ArrayList<>();
-        for (int i = 1; i <= count; i++) {
-            PointModel newModel = new PointModel(
-                    String.valueOf(i),
-                    String.format(Locale.getDefault(), "Punto %d", i),
-                    String.format(Locale.getDefault(), "Descripción de punto %d", i)
-                    );
-            models.add(newModel);
-        }
-        return models;
-    }
 }
