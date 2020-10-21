@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
 
     private PointsRepository mPointsRepository;
     private List<PointModel> mModelList;
+    private PointsAdapter mPointsAdapter;
 
     private ViewGroup rootView;
 
@@ -41,8 +43,15 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
         setup();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadData();
+    }
+
     private void setup() {
         mPointsRepository = new PointsRepository();
+        mModelList = new ArrayList<>();
 
         Intent startIntent = getIntent();
         if(startIntent == null) {
@@ -78,12 +87,24 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
 
     private void setupPointListView() {
         RecyclerView rvPoints = findViewById(R.id.rv_points);
-        mModelList = mPointsRepository.getAll();
-        PointsAdapter adapter = new PointsAdapter(mModelList, this);
-        rvPoints.setAdapter(adapter);
+        mPointsAdapter = new PointsAdapter(mModelList, this);
+        rvPoints.setAdapter(mPointsAdapter);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getBaseContext());
         rvPoints.setLayoutManager(layoutManager);
         rvPoints.setHasFixedSize(true);
+    }
+
+    private void loadData() {
+        if(!mModelList.isEmpty()) {
+            Log.d(TAG, "Ya existen valores en la lista");
+            return;
+        }
+        if(mPointsRepository == null) {
+            Log.e(TAG, "mPointsRepository no debería ser null");
+            return;
+        }
+        mModelList = mPointsRepository.getAll();
+        mPointsAdapter.updateList(mModelList);
     }
 
     @Override

@@ -19,7 +19,7 @@ import edu.dami.guiameapp.models.PointModel;
 public class PointsAdapter extends RecyclerView.Adapter<PointViewHolder> {
 
     @NonNull
-    private final List<PointModel> mModelList;
+    private List<PointModel> mModelList;
     @Nullable
     private final ItemTapListener mTapListener;
 
@@ -27,6 +27,11 @@ public class PointsAdapter extends RecyclerView.Adapter<PointViewHolder> {
     public PointsAdapter(@NonNull List<PointModel> modelList, @Nullable ItemTapListener tapListener) {
         mModelList = modelList;
         mTapListener = tapListener;
+    }
+
+    public void updateList(List<PointModel> newList) {
+        mModelList = newList;
+        notifyDataSetChanged();
     }
 
     @NonNull
