@@ -1,6 +1,7 @@
 package edu.dami.guiameapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,7 @@ import java.util.Locale;
 import edu.dami.guiameapp.adapters.PointsAdapter;
 import edu.dami.guiameapp.data.IPointsSource;
 import edu.dami.guiameapp.data.PointsRepository;
+import edu.dami.guiameapp.fragments.PointsFragment;
 import edu.dami.guiameapp.helpers.events.ItemTapListener;
 import edu.dami.guiameapp.models.PointModel;
 
@@ -32,8 +34,6 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
 
     private PointsRepository mPointsRepository;
     private List<PointModel> mModelList;
-    private PointsAdapter mPointsAdapter;
-
     private ViewGroup rootView;
 
     @Override
@@ -78,20 +78,9 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
                     R.string.cannot_get_email,
                     Toast.LENGTH_SHORT
             ).show();
-            return;
         }
 
         rootView = findViewById(R.id.ly_root);
-        setupPointListView();
-    }
-
-    private void setupPointListView() {
-        RecyclerView rvPoints = findViewById(R.id.rv_points);
-        mPointsAdapter = new PointsAdapter(mModelList, this);
-        rvPoints.setAdapter(mPointsAdapter);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getBaseContext());
-        rvPoints.setLayoutManager(layoutManager);
-        rvPoints.setHasFixedSize(true);
     }
 
     private void loadData() {
@@ -104,7 +93,14 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
             return;
         }
         mModelList = mPointsRepository.getAll();
-        mPointsAdapter.updateList(mModelList);
+
+        loadPointsFragment(new ArrayList<PointModel>(mModelList));
+    }
+
+    private void loadPointsFragment(ArrayList<PointModel> points) {
+        FragmentTransaction frgTran = getSupportFragmentManager().beginTransaction();
+        frgTran.replace(R.id.points_ph, PointsFragment.newInstance(points));
+        frgTran.commit();
     }
 
     @Override
@@ -123,6 +119,10 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
         }
 
         PointModel selectedItemModel = mModelList.get(position);
+        showMessageWithPoint(selectedItemModel);
+    }
+
+    private void showMessageWithPoint(PointModel selectedItemModel) {
         Snackbar.make(rootView,
                 String.format(Locale.getDefault(),
                         "Has seleccionado %s", selectedItemModel.getName()
