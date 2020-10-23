@@ -124,14 +124,23 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
     }
 
     private void navigateToProfile(PointModel point) {
-        //TODO: si hay 2 vistas, lanzar fragmento
-        launchProfileActivity(point);
+        if(isTwoPaneLayout()) {
+            loadDetailsFragment(point);
+        } else {
+            launchProfileActivity(point);
+        }
     }
 
     private void launchProfileActivity(PointModel point) {
         Intent intent = new Intent(this, PointProfileActivity.class);
         intent.putExtra(PointProfileActivity.ARG_POINT, point);
         startActivity(intent);
+    }
+
+    private void loadDetailsFragment(PointModel point) {
+        FragmentTransaction frgTran = getSupportFragmentManager().beginTransaction();
+        frgTran.replace(R.id.point_profile_ph, PointProfileFragment.newInstance(point));
+        frgTran.commit();
     }
 
     private void showMessageWithPoint(PointModel selectedItemModel) {
@@ -141,5 +150,9 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
                 ),
                 Snackbar.LENGTH_LONG
         ).show();
+    }
+
+    private boolean isTwoPaneLayout() {
+        return  findViewById(R.id.point_profile_ph) != null;
     }
 }
