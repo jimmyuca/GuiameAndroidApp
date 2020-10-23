@@ -22,6 +22,7 @@ import java.util.Locale;
 import edu.dami.guiameapp.adapters.PointsAdapter;
 import edu.dami.guiameapp.data.IPointsSource;
 import edu.dami.guiameapp.data.PointsRepository;
+import edu.dami.guiameapp.fragments.PointProfileFragment;
 import edu.dami.guiameapp.fragments.PointsFragment;
 import edu.dami.guiameapp.helpers.events.ItemTapListener;
 import edu.dami.guiameapp.models.PointModel;
@@ -119,7 +120,18 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
         }
 
         PointModel selectedItemModel = mModelList.get(position);
-        showMessageWithPoint(selectedItemModel);
+        navigateToProfile(selectedItemModel);
+    }
+
+    private void navigateToProfile(PointModel point) {
+        //TODO: si hay 2 vistas, lanzar fragmento
+        launchProfileActivity(point);
+    }
+
+    private void launchProfileActivity(PointModel point) {
+        Intent intent = new Intent(this, PointProfileActivity.class);
+        intent.putExtra(PointProfileActivity.ARG_POINT, point);
+        startActivity(intent);
     }
 
     private void showMessageWithPoint(PointModel selectedItemModel) {
