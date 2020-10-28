@@ -1,5 +1,8 @@
 package edu.dami.guiameapp.fragments;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,10 +13,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 import edu.dami.guiameapp.R;
 import edu.dami.guiameapp.models.PointModel;
+
+import static edu.dami.guiameapp.helpers.events.PointProfileListener.CAMERA_REQUEST_ID;
 
 /*
 * Mas info sobre Fragments incluyendo codelab
@@ -27,6 +35,8 @@ public class PointProfileFragment extends Fragment {
     private static final String TAG = PointProfileFragment.class.getName();
 
     private PointModel mPoint;
+
+    private ImageView ivPhoto;
 
     public PointProfileFragment() {
         // Required empty public constructor
@@ -55,6 +65,15 @@ public class PointProfileFragment extends Fragment {
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult fired (from fragment)");
+        if(requestCode == CAMERA_REQUEST_ID && resultCode == Activity.RESULT_OK && data != null) {
+            showTakenPhoto(data.getExtras());
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_point_profile, container, false);
@@ -70,6 +89,23 @@ public class PointProfileFragment extends Fragment {
 
         tvName.setText(point.getName());
         tvDesc.setText(point.getDescription());
+
+        ivPhoto = view.findViewById(R.id.iv_photo);
+    }
+
+    private void showTakenPhoto(@Nullable Bundle intentData) {
+        if(intentData == null) {
+            Log.e(TAG, "Bundle null");
+            return;
+        }
+        Bitmap imageBitmap = (Bitmap) intentData.get("data");
+        if(imageBitmap == null) {
+            Log.e(TAG, "Foto null");
+            return;
+        }
+        ivPhoto.setImageBitmap(imageBitmap);
+
+        //Mas info: https://developer.android.com/training/camera/photobasics
     }
 
 }

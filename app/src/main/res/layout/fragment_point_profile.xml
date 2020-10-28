@@ -23,4 +23,16 @@
         tools:text="Universidad Centroamericana UCA. Pabellón de salas de laboratorios ubicado frente al centro de historia."
         />
 
+    <ImageView
+        android:id="@+id/iv_photo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="@string/photo"
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        tools:src="@drawable/ic_baseline_camera_alt_24"
+        />
+
 </LinearLayout>
