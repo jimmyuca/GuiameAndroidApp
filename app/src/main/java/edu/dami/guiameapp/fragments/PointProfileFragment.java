@@ -15,11 +15,12 @@ import android.widget.TextView;
 import edu.dami.guiameapp.R;
 import edu.dami.guiameapp.models.PointModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PointProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+/*
+* Mas info sobre Fragments incluyendo codelab
+* https://codelabs.developers.google.com/codelabs/advanced-android-training-fragment-communication?hl=en#6
+* https://github.com/google-developer-training/android-advanced/tree/master/FragmentCommunicate
+* */
+
 public class PointProfileFragment extends Fragment {
 
     private static final String ARG_POINT = "point";
@@ -31,14 +32,6 @@ public class PointProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param point Modelo.
-     * @return A new instance of fragment PointProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static PointProfileFragment newInstance(PointModel point) {
         PointProfileFragment fragment = new PointProfileFragment();
         Bundle args = new Bundle();
@@ -64,7 +57,6 @@ public class PointProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_point_profile, container, false);
     }
 

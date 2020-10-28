@@ -26,6 +26,7 @@ public class PointProfileActivity extends AppCompatActivity {
     }
 
     private void setup() {
+        setupBar();
         Intent navIntent = getIntent();
         PointModel selectedPoint = navIntent.getParcelableExtra(ARG_POINT);
         if(selectedPoint == null) {
@@ -34,6 +35,28 @@ public class PointProfileActivity extends AppCompatActivity {
         }
 
         loadPointFragment(selectedPoint);
+    }
+
+    private void setupBar() {
+        if(getSupportActionBar() == null) {
+            Log.d(TAG, "ActionBar null");
+            return;
+        }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    /*
+    Esta es una mala práctica en caso que se implemente navegación con hermanos o
+    entre apps (incluyendo push notifications). Por el momento se establece así para
+    simplicidad y no recurrir a Toolbar porque no se ha abordado en detalle aún.
+    https://developer.android.com/training/appbar/up-action
+    TODO: migrar a Toolbar y cambiar patrón Up+Back a Back
+    TODO: (2) migrar a Jetpack Navigation
+    * */
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     private void loadPointFragment(PointModel point) {
