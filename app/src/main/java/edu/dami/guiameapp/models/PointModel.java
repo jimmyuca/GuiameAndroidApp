@@ -12,12 +12,16 @@ public class PointModel implements Parcelable {
     private String name;
     private String description;
     private String category;
+    private double lat;
+    private double lng;
 
-    public PointModel(String id, String name, String description, String category) {
+    public PointModel(String id, String name, String description, String category, double lat, double lng) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.category = category;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     public String getId() {
@@ -52,6 +56,21 @@ public class PointModel implements Parcelable {
         this.category = category;
     }
 
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLng() {
+        return lng;
+    }
+
+    public void setLng(double lng) {
+        this.lng = lng;
+    }
 
     /*
     IMPLEMENTACIONES PARA PARCELABLE
@@ -70,6 +89,8 @@ public class PointModel implements Parcelable {
         name = in.readString();
         description = in.readString();
         category = in.readString();
+        lat = in.readDouble();
+        lng = in.readDouble();
     }
 
     @Override
@@ -83,6 +104,8 @@ public class PointModel implements Parcelable {
         dest.writeString(name);
         dest.writeString(description);
         dest.writeString(category);
+        dest.writeDouble(lat);
+        dest.writeDouble(lng);
     }
 
     public static final Parcelable.Creator<PointModel> CREATOR = new Parcelable.Creator<PointModel>() {

@@ -17,113 +17,149 @@ public class PointsMockSource implements IPointsSource {
                 genId(),
                 "Laboratorios J",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                Categories.TECHNOLOGY
+                Categories.TECHNOLOGY,
+                12.126439,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Laboratorios H",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                Categories.TECHNOLOGY
+                Categories.TECHNOLOGY,
+                12.126440,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Laboratorios E",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                "tecnología"
+                "tecnología",
+                12.126441,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Laboratorios U",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                Categories.TECHNOLOGY
+                Categories.TECHNOLOGY,
+                12.126445,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Laboratorios F",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                Categories.TECHNOLOGY
+                Categories.TECHNOLOGY,
+                12.126450,
+                -86.270075
         ));
 
         models.add(new PointModel(
                 genId(),
                 "Facultad de CTyA",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                Categories.BUILDING
+                Categories.BUILDING,
+                12.126455,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Facultad de Derecho",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                Categories.BUILDING
+                Categories.BUILDING,
+                12.126460,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Facultad de Comunicación",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                Categories.BUILDING
+                Categories.BUILDING,
+                12.126465,
+                -86.270075
         ));
 
         models.add(new PointModel(
                 genId(),
                 "Radio Universitaria",
                 "Universidad Centroamericana de Nicaragua. Recinto principal. Costado Oeste, cerca de la Capilla",
-                Categories.BUILDING
+                Categories.BUILDING,
+                12.126466,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Biblioteca José Coronel Urtecho",
                 "Universidad Centroamericana de Nicaragua. Recinto principal. Costado Oeste, frente al cafetín Central",
-                Categories.BUILDING
+                Categories.BUILDING,
+                12.126470,
+                -86.270075
         ));
 
         models.add(new PointModel(
                 genId(),
                 "Kiosko de Eskimo",
                 "Universidad Centroamericana de Nicaragua. Recinto principal. Food Park Este",
-                Categories.FOOD
+                Categories.FOOD,
+                12.126475,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Pupusas Salvadoreñas",
                 "Universidad Centroamericana de Nicaragua. Recinto principal. Food Park Este",
-                Categories.FOOD
+                Categories.FOOD,
+                12.126480,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "King's Dog",
                 "Universidad Centroamericana de Nicaragua. Recinto principal. Food Park Este",
-                Categories.FOOD
+                Categories.FOOD,
+                12.126485,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Fritangas doña Mary",
-                "Universidad Centroamericana de Nicaragua. Recinto principal. Food Park Este",
-                Categories.FOOD
+                "Metrocentro Managua. Food Park Este",
+                Categories.FOOD,
+                12.1297637,
+                -86.2634925
         ));
         models.add(new PointModel(
                 genId(),
                 "Queen's Dog",
                 "Universidad Centroamericana de Nicaragua. Recinto principal. Food Park Este",
-                Categories.FOOD
+                Categories.FOOD,
+                12.126487,
+                -86.270075
         ));
 
         models.add(new PointModel(
                 genId(),
                 "Parqueo Principal",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                Categories.PARKING
+                Categories.PARKING,
+                12.126488,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Parqueo Este",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                Categories.PARKING
+                Categories.PARKING,
+                12.126489,
+                -86.270075
         ));
         models.add(new PointModel(
                 genId(),
                 "Parqueo Oeste",
                 "Universidad Centroamericana de Nicaragua. Recinto principal",
-                Categories.PARKING
+                Categories.PARKING,
+                12.126490,
+                -86.270075
         ));
 
         Collections.shuffle(models);
