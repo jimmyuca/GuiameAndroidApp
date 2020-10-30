@@ -22,4 +22,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="take_photo">Tomar foto</string>
     <string name="photo">foto</string>
+    <string name="ver_ubicacion_en_mapa">Ver ubicación en mapa</string>
+    <string name="location_request">Favor brindanos permiso de ubicacion para presentarte la ruta en el mapa</string>
 </resources>
