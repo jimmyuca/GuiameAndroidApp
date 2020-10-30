@@ -108,8 +108,6 @@ public class PointProfileFragment extends Fragment {
                                            @NonNull int[] grantResults) {
         if(requestCode == LOC_PERMISSION_REQUEST_CODE) {
             onUserInteractedWithLocationPermissionSystemDialog(permissions, grantResults);
-        } else {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 
@@ -169,7 +167,7 @@ public class PointProfileFragment extends Fragment {
     }
 
     private boolean hasLocationPermission(Context context) {
-        int permissionState = ActivityCompat.checkSelfPermission(
+        int permissionState = ContextCompat.checkSelfPermission(
                 context,
                 LOCATION_PERMISSION
         );
@@ -205,7 +203,7 @@ public class PointProfileFragment extends Fragment {
     }
 
     private void launchLocationPermissionSystemDialog(Activity activity) {
-        ActivityCompat.requestPermissions(activity,
+        requestPermissions(
                 new String[]{LOCATION_PERMISSION},
                 LOC_PERMISSION_REQUEST_CODE
         );
