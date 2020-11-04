@@ -27,21 +27,31 @@
             android:value="@integer/google_play_services_version" />
         -->
 
-        <activity android:name=".PointProfileActivity"
-            android:parentActivityName=".MainActivity"
-            />
-        <activity android:name=".MainActivity" />
         <activity
-            android:name=".SignUpActivity"
-            android:theme="@style/AppOnboardingTheme" />
-        <activity
-            android:name=".OnboardingActivity"
-            android:theme="@style/AppOnboardingTheme">
+            android:name=".StartActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".OnboardingActivity"
+            android:theme="@style/AppOnboardingTheme"
+            />
+
+
+        <activity
+            android:name=".SignUpActivity"
+            android:theme="@style/AppOnboardingTheme"
+            />
+
+        <activity android:name=".MainActivity" />
+
+        <activity android:name=".PointProfileActivity"
+            android:parentActivityName=".MainActivity"
+            />
 
     </application>
 

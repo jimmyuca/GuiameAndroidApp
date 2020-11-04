@@ -62,6 +62,8 @@ public class SignUpActivity extends AppCompatActivity {
             throw new InvalidParameterException();
 
         Intent intent = new Intent(this, MainActivity.class);
+        //la proxima activity ahora será la primera en el back stack
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra(MainActivity.FULLNAME_KEY, etFullname.getText().toString());
         intent.putExtra(MainActivity.EMAIL_KEY, etEmail.getText().toString());
         startActivity(intent);

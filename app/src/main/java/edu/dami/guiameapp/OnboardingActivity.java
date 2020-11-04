@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import edu.dami.guiameapp.data.UserConfig;
+
 public class OnboardingActivity extends AppCompatActivity {
 
     @Override
@@ -31,8 +33,15 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void navigateToSignUp() {
+        saveFirstStart();
         Intent intent = new Intent(this, SignUpActivity.class);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        //la proxima activity ahora será la primera en el back stack
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+    }
+
+    private void saveFirstStart() {
+        UserConfig userConfig = new UserConfig(getApplicationContext());
+        userConfig.setIsFirstTime(false);
     }
 }
