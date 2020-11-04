@@ -1,5 +1,6 @@
 package edu.dami.guiameapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -22,10 +24,12 @@ import java.util.Locale;
 import edu.dami.guiameapp.adapters.PointsAdapter;
 import edu.dami.guiameapp.data.IPointsSource;
 import edu.dami.guiameapp.data.PointsRepository;
+import edu.dami.guiameapp.data.UserConfig;
 import edu.dami.guiameapp.fragments.PointProfileFragment;
 import edu.dami.guiameapp.fragments.PointsFragment;
 import edu.dami.guiameapp.helpers.events.ItemTapListener;
 import edu.dami.guiameapp.models.PointModel;
+import edu.dami.guiameapp.models.UserModel;
 
 public class MainActivity extends AppCompatActivity implements ItemTapListener {
 
@@ -53,7 +57,11 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
     private void setup() {
         mPointsRepository = new PointsRepository();
         mModelList = new ArrayList<>();
+        rootView = findViewById(R.id.ly_root);
+        setupViewFromData();
+    }
 
+    private void setupViewFromData() {
         Intent startIntent = getIntent();
         if(startIntent == null) {
             Toast.makeText(
@@ -64,24 +72,35 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
             return;
         }
 
-        String fullname = startIntent.getStringExtra(FULLNAME_KEY);
-        if(TextUtils.isEmpty(fullname)) {
-            fullname = "Usuario";
-        }
+        UserModel userModel = getUserModelFromSources(startIntent.getExtras());
+
         if(getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(getString(R.string.welcome_user_title, fullname));
+            String fullname = TextUtils.isEmpty(userModel.getFullname()) ?
+                    "Usuario" : userModel.getFullname();
+            getSupportActionBar()
+                    .setTitle(getString(R.string.welcome_user_title, fullname));
         }
 
-        String email = startIntent.getStringExtra(EMAIL_KEY);
-        if(TextUtils.isEmpty(email)) {
+        if(TextUtils.isEmpty(userModel.getEmail())) {
             Toast.makeText(
                     this,
                     R.string.cannot_get_email,
                     Toast.LENGTH_SHORT
             ).show();
         }
+    }
 
-        rootView = findViewById(R.id.ly_root);
+    @NonNull
+    private UserModel getUserModelFromSources(Bundle extras) {
+        UserConfig userConfig = new UserConfig(getApplicationContext());
+        final UserModel user = userConfig.getUser();
+        if(user != null) {
+            return user;
+        }
+        if(extras == null) {
+            throw new InvalidParameterException("Extras");
+        }
+        return new UserModel(extras.getString(FULLNAME_KEY), extras.getString(EMAIL_KEY));
     }
 
     private void loadData() {
