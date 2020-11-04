@@ -16,10 +16,15 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.security.InvalidParameterException;
 
+import edu.dami.guiameapp.data.UserConfig;
+import edu.dami.guiameapp.models.UserModel;
+
 public class SignUpActivity extends AppCompatActivity {
 
     TextInputLayout tilFullname, tilEmail;
     EditText etFullname, etEmail;
+
+    UserModel userModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,33 +44,34 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navigateToMain();
+                signUp();
             }
         });
 
         loadDefaultDataIfDebug();
     }
 
-    @SuppressLint("SetTextI18n")
-    private void loadDefaultDataIfDebug() {
-        if(!BuildConfig.DEBUG) return;
-        etFullname.setText("Jimmy Saenz");
-        etEmail.setText("jimmy.saenz@uca.edu.ni");
-    }
 
-    private void navigateToMain() {
+    private void signUp() {
         if(!validateFields()) {
             return;
         }
+        userModel = new UserModel(etFullname.getText().toString(), etEmail.getText().toString());
+        saveUser(userModel);
+        navigateToMain(userModel);
+    }
 
-        if(etFullname.getText() == null || etEmail.getText() == null)
-            throw new InvalidParameterException();
+    private void saveUser(UserModel user) {
+        UserConfig userConfig = new UserConfig(getApplicationContext());
+        userConfig.setUser(user);
+    }
 
+    private void navigateToMain(UserModel user) {
         Intent intent = new Intent(this, MainActivity.class);
         //la proxima activity ahora será la primera en el back stack
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra(MainActivity.FULLNAME_KEY, etFullname.getText().toString());
-        intent.putExtra(MainActivity.EMAIL_KEY, etEmail.getText().toString());
+        intent.putExtra(MainActivity.FULLNAME_KEY, user.getFullname());
+        intent.putExtra(MainActivity.EMAIL_KEY, user.getEmail());
         startActivity(intent);
     }
 
@@ -89,5 +95,12 @@ public class SignUpActivity extends AppCompatActivity {
                 message,
                 Toast.LENGTH_LONG
         ).show();
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void loadDefaultDataIfDebug() {
+        if(!BuildConfig.DEBUG) return;
+        etFullname.setText("Jimmy Saenz");
+        etEmail.setText("jimmy.saenz@uca.edu.ni");
     }
 }

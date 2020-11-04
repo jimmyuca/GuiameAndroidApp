@@ -22,7 +22,11 @@ public class StartActivity extends Activity {
         if(userConfig.isFirstTime()) {
             intent = new Intent(getBaseContext(), OnboardingActivity.class);
         } else {
-            intent = new Intent(getBaseContext(), MainActivity.class);
+            if(userConfig.userExists()) {
+                intent = new Intent(getBaseContext(), MainActivity.class);
+            } else {
+                intent = new Intent(getBaseContext(), SignUpActivity.class);
+            }
         }
         startActivity(intent);
         //finalizar esta actividad
