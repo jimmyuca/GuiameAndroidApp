@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
     }
 
     private void setup() {
-        mPointsRepository = new PointsRepository();
+        mPointsRepository = new PointsRepository(getBaseContext());
         mModelList = new ArrayList<>();
         rootView = findViewById(R.id.ly_root);
         setupViewFromData();

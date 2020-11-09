@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "name": "Laboratorios J",
+      "description": "Universidad Centroamericana de Nicaragua. Recinto principal",
+      "category": "tecnologia",
+      "lat": 12.126439,
+      "lng": -86.270075
+    },
+    {
+      "name": "Laboratorios H",
+      "description": "Universidad Centroamericana de Nicaragua. Recinto principal",
+      "category": "tecnologia",
+      "lat": 12.126440,
+      "lng": -86.270075
+    },
+    {
+      "name": "Facultad de CTyA",
+      "description": "Universidad Centroamericana de Nicaragua. Recinto principal",
+      "category": "edificio",
+      "lat": 12.126455,
+      "lng": -86.270075
+    },
+    {
+      "name": "Biblioteca José Coronel Urtecho",
+      "description": "Universidad Centroamericana de Nicaragua. Recinto principal. Costado Oeste, frente al cafetín Central",
+      "category": "edificio",
+      "lat": 12.126470,
+      "lng": -86.270075
+    },
+    {
+      "name": "Queen's Dog",
+      "description": "Universidad Centroamericana de Nicaragua. Recinto principal. Food Park Este",
+      "category": "comida",
+      "lat": 12.126487,
+      "lng": -86.270075
+    },
+    {
+      "name": "Fritangas doña Mary",
+      "description": "Metrocentro Managua. Food Park Este",
+      "category": "comida",
+      "lat": 12.1297637,
+      "lng": -86.2634925
+    },
+    {
+      "name": "Rostipollos",
+      "description": "Metrocentro Managua. Food Park Este",
+      "category": "comida",
+      "lat": 12.1297737,
+      "lng": -86.2634925
+    },
+    {
+      "name": "Migración y Extranjería",
+      "description": "Metrocentro Managua. Especificamente 2do piso, frente a Cinemark.",
+      "category": "edificio",
+      "lat": 12.1297437,
+      "lng": -86.2634925
+    }
+  ]
+}
