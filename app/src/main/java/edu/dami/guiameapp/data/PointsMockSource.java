@@ -1,7 +1,10 @@
 package edu.dami.guiameapp.data;
 
+import androidx.annotation.NonNull;
+
 import com.github.javafaker.Faker;
 
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -163,7 +166,14 @@ public class PointsMockSource implements IPointsSource {
         ));
 
         Collections.shuffle(models);
-        return models;
+        return filterByCount(models, count);
+    }
+
+    private List<PointModel> filterByCount(@NonNull List<PointModel> originalList, int count) {
+        if(count < 0) throw new InvalidParameterException("Parametro count inválido");
+        if(count == 0) return originalList;
+        if(count >= originalList.size()) return originalList;
+        return originalList.subList(0, count);
     }
 
     private String genId() {
