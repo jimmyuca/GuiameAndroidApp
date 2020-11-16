@@ -8,7 +8,6 @@ import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
 import java.lang.reflect.Type;
-import java.security.InvalidParameterException;
 import java.util.List;
 
 import edu.dami.guiameapp.helpers.FileHelper;
@@ -33,7 +32,7 @@ public class PointsAssetSource implements IPointsSource {
     }
 
     private List<PointModel> filterByCount(@NonNull List<PointModel> originalList, int count) {
-        if(count < 0) throw new InvalidParameterException("Parametro count inválido");
+        if(count < 0) throw new IllegalArgumentException("Parametro count inválido");
         if(count == 0) return originalList;
         if(count >= originalList.size()) return originalList;
         return originalList.subList(0, count);

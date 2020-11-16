@@ -1,7 +1,6 @@
 package edu.dami.guiameapp;
 import org.junit.Test;
 
-import java.security.InvalidParameterException;
 import java.util.List;
 
 import edu.dami.guiameapp.data.IPointsSource;
@@ -21,7 +20,7 @@ public class PointMockSourceTest {
         assertEquals(expectedCount, pointsList.size());
     }
 
-    @Test(expected = InvalidParameterException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void dado_obtenerPuntos_conUnContadorNegativo_arrojarExcepcion() {
         IPointsSource pointsSource = new PointsMockSource();
         List<PointModel> pointsList = pointsSource.getAll(-1);
