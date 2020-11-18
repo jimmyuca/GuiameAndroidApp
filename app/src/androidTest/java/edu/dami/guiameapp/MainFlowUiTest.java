@@ -40,7 +40,7 @@ import static org.hamcrest.Matchers.is;
 public class MainFlowUiTest {
 
     @Rule
-    public ActivityTestRule<StartActivity> mActivityTestRule = new ActivityTestRule<>(StartActivity.class);
+    public ActivityTestRule<OnboardingActivity> mActivityTestRule = new ActivityTestRule<>(OnboardingActivity.class);
 
     @Test
     public void mainFlowUiTest() {
@@ -61,52 +61,27 @@ public class MainFlowUiTest {
         materialButton.perform(click());
 
         ViewInteraction textInputEditText = onView(
-                allOf(withId(R.id.et_fullname), withText("Jimmy Sáenz Rizo"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.til_fullname),
-                                        0),
-                                0),
+                allOf(withId(R.id.et_fullname),
                         isDisplayed()));
         textInputEditText.perform(replaceText("Jimmy Sáenz Rizo"));
 
         ViewInteraction textInputEditText2 = onView(
                 allOf(withId(R.id.et_fullname), withText("Jimmy Sáenz Rizo"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.til_fullname),
-                                        0),
-                                0),
                         isDisplayed()));
         textInputEditText2.perform(closeSoftKeyboard());
 
         ViewInteraction textInputEditText3 = onView(
-                allOf(withId(R.id.et_email), withText("jimmy.saenz.rizo@gmail.com"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.til_email),
-                                        0),
-                                0),
+                allOf(withId(R.id.et_email),
                         isDisplayed()));
         textInputEditText3.perform(replaceText("jimmy.saenz.rizo@gmail.com"));
 
         ViewInteraction textInputEditText4 = onView(
                 allOf(withId(R.id.et_email), withText("jimmy.saenz.rizo@gmail.com"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.til_email),
-                                        0),
-                                0),
                         isDisplayed()));
         textInputEditText4.perform(closeSoftKeyboard());
 
         ViewInteraction textInputEditText5 = onView(
                 allOf(withId(R.id.et_email), withText("jimmy.saenz.rizo@gmail.com"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withId(R.id.til_email),
-                                        0),
-                                0),
                         isDisplayed()));
         textInputEditText5.perform(pressImeActionButton());
 
