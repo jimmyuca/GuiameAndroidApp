@@ -1,8 +1,11 @@
 package edu.dami.guiameapp;
 
+import android.app.Activity;
 import android.view.View;
 
 import androidx.annotation.StringRes;
+import androidx.test.core.app.ActivityScenario;
+import androidx.test.ext.junit.rules.ActivityScenarioRule;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -58,5 +61,19 @@ public class TestHelper {
                 .getTargetContext()
                 .getResources()
                 .getString(id, formatArgs);
+    }
+
+    public static <T extends Activity> void setupDecorView(
+            ActivityScenarioRule<T> scenarioRule, final TestActivityActionListener listener) {
+        scenarioRule.getScenario().onActivity(new ActivityScenario.ActivityAction<T>() {
+            @Override
+            public void perform(T activity) {
+                listener.onGetDecorView(activity.getWindow().getDecorView());
+            }
+        });
+    }
+
+    public interface TestActivityActionListener {
+        void onGetDecorView(View decorView);
     }
 }
