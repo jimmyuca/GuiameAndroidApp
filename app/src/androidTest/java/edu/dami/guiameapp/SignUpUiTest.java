@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
+import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
@@ -40,17 +41,28 @@ public class SignUpUiTest {
     }
 
     @Test
-    public void dado_clickBoton_conNoParams_presentarErrores() {
+    public void dado_clickBoton_conNoParams_presentarError() {
         final String username = "";
         final String email = "";
 
-        onView(withId(R.id.et_fullname)).perform(typeText(username), closeSoftKeyboard());
-        onView(withId(R.id.et_email)).perform(typeText(email), closeSoftKeyboard());
+        onView(withId(R.id.et_fullname)).perform(replaceText(username), closeSoftKeyboard());
+        onView(withId(R.id.et_email)).perform(replaceText(email), closeSoftKeyboard());
         onView(withId(R.id.btn_signup)).perform(click());
 
         onView(withId(R.id.til_fullname))
                 .check(matches(hasInputErrorText(R.string.fullname_error)));
-        onView(withId(R.id.til_fullname))
+    }
+
+    @Test
+    public void dado_clickBoton_conEmailInvalido_presentarError() {
+        final String username = "jimmy";
+        final String email = "";
+
+        onView(withId(R.id.et_fullname)).perform(replaceText(username), closeSoftKeyboard());
+        onView(withId(R.id.et_email)).perform(replaceText(email), closeSoftKeyboard());
+        onView(withId(R.id.btn_signup)).perform(click());
+
+        onView(withId(R.id.til_email))
                 .check(matches(hasInputErrorText(R.string.email_error)));
     }
 
