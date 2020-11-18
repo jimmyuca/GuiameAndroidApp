@@ -24,4 +24,6 @@
     <string name="photo">foto</string>
     <string name="ver_ubicacion_en_mapa">Ver ubicación en mapa</string>
     <string name="location_request">Favor brindanos permiso de ubicacion para presentarte la ruta en el mapa</string>
+    <string name="fullname_error">Favor ingresa tu nombre completo :)</string>
+    <string name="email_error">Favor ingresa tu email :)</string>
 </resources>

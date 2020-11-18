@@ -48,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
-        loadDefaultDataIfDebug();
+        //loadDefaultDataIfDebug();
     }
 
 
@@ -77,11 +77,11 @@ public class SignUpActivity extends AppCompatActivity {
 
     private boolean validateFields() {
         if(etFullname.getText() == null || TextUtils.isEmpty(etFullname.getText().toString())) {
-            showMessage("Favor ingresa tu nombre completo :)");
+            tilFullname.setError(getString(R.string.fullname_error));
             return false;
         }
         if(etEmail.getText() == null || TextUtils.isEmpty(etEmail.getText().toString())) {
-            showMessage("Favor ingresa tu email :)");
+            tilEmail.setError(getString(R.string.email_error));
             return false;
         }
 
