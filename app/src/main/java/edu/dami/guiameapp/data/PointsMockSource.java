@@ -2,8 +2,6 @@ package edu.dami.guiameapp.data;
 
 import androidx.annotation.NonNull;
 
-import com.github.javafaker.Faker;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
