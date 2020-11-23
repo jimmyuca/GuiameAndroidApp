@@ -1,0 +1,2 @@
+Se ha agregado este archivo en el repositorio para fines prácticos y pedagógicos, logicamente no se usará para subir a alguna tienda. 
+Por favor **nunca subas este tipo de archivos a un repositorio público o incluso privado**, si mantenés el archivo en el repositorio por practicidad, agregalo a `.gitignore`
