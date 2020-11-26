@@ -19,6 +19,7 @@ public class UserConfig {
     private static final String PREF_FIRST_TIME = "is_first_time";
     private static final String PREF_USER_NAME = "user_name";
     private static final String PREF_USER_EMAIL = "user_email";
+    private static final String PREF_POINTS_LOADED = "points_loaded";
 
     private final SharedPreferences mPrefs;
 
@@ -64,6 +65,17 @@ public class UserConfig {
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString(PREF_USER_NAME, user.getFullname());
         prefsEditor.putString(PREF_USER_EMAIL, user.getEmail());
+        prefsEditor.apply();
+        return true;
+    }
+
+    public boolean isPointsLoadedFromDb() {
+        return mPrefs.getBoolean(PREF_POINTS_LOADED, false);
+    }
+
+    public boolean setIsPointsLoadedFromDb(Boolean value) {
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putBoolean(PREF_POINTS_LOADED, value);
         prefsEditor.apply();
         return true;
     }

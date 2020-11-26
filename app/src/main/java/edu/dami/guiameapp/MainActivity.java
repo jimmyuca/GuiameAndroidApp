@@ -3,8 +3,6 @@ package edu.dami.guiameapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,8 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import edu.dami.guiameapp.adapters.PointsAdapter;
-import edu.dami.guiameapp.data.IPointsSource;
 import edu.dami.guiameapp.data.PointsRepository;
 import edu.dami.guiameapp.data.UserConfig;
 import edu.dami.guiameapp.fragments.PointProfileFragment;
@@ -51,12 +47,16 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
     @Override
     protected void onResume() {
         super.onResume();
+        //TODO: si el seed de la BD se carga de forma asincrona
+        //se tendria que adaptar este metodo para evitar que se invoque cuando todavia no hay datos
         loadData();
     }
 
     private void setup() {
-        mPointsRepository = new PointsRepository(getBaseContext());
+        mPointsRepository = new PointsRepository(getApplicationContext());
         mModelList = new ArrayList<>();
+        setupDataSource();
+
         rootView = findViewById(R.id.ly_root);
         setupViewFromData();
     }
@@ -162,6 +162,10 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
         frgTran.commit();
     }
 
+    private void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
+
     private void showMessageWithPoint(PointModel selectedItemModel) {
         Snackbar.make(rootView,
                 String.format(Locale.getDefault(),
@@ -174,4 +178,16 @@ public class MainActivity extends AppCompatActivity implements ItemTapListener {
     private boolean isTwoPaneLayout() {
         return  findViewById(R.id.point_profile_ph) != null;
     }
+
+    private void setupDataSource() {
+        //TODO: este metodo se deberia invocar en otro hilo para no bloquear la UI.
+        //TODO: mientras carga, deberia presentar un progress
+        boolean hasDataSeeded = mPointsRepository.seedSourceWithInitialData();
+        if(hasDataSeeded) {
+            showToast(getString(R.string.load_data_from_db_success_msg));
+        } else {
+            showToast(getString(R.string.load_data_from_db_error_msg));
+        }
+    }
+
 }

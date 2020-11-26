@@ -26,4 +26,6 @@
     <string name="location_request">Favor brindanos permiso de ubicacion para presentarte la ruta en el mapa</string>
     <string name="fullname_error">Favor ingresa tu nombre completo :)</string>
     <string name="email_error">Favor ingresa tu email :)</string>
+    <string name="load_data_from_db_success_msg">Gracias por esperar, hemos cargado los puntos desde nuestra base de datos</string>
+    <string name="load_data_from_db_error_msg">Lo sentimos :( no pudimos cargar los puntos desde la base de datos</string>
 </resources>

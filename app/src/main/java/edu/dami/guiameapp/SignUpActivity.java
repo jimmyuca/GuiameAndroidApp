@@ -85,7 +85,6 @@ public class SignUpActivity extends AppCompatActivity {
             return false;
         }
 
-        showMessage("Todo bien, todo correcto, gracias!");
         return true;
     }
 
