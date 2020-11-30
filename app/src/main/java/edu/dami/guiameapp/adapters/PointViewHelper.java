@@ -1,11 +1,20 @@
 package edu.dami.guiameapp.adapters;
 
+import android.content.Context;
+
 import androidx.annotation.DrawableRes;
 
 import edu.dami.guiameapp.R;
 import edu.dami.guiameapp.data.IPointsSource;
 
 public class PointViewHelper {
+
+    @DrawableRes
+    public static int getResIdByCategory(String category, Context context) {
+        return context
+                .getResources()
+                .getIdentifier(category, "drawable", "edu.dami.guiameapp");
+    }
 
     @DrawableRes
     public static int getResIdByCategory(String category) {
